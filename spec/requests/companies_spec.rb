@@ -14,7 +14,7 @@ describe 'companies query' do
     end
 
     companies = create_list(:company, 10)
-    require 'pry'; binding.pry
     post '/graphql', params: { query: fetch_companies }
+    require 'pry'; binding.pry
   end
 end
