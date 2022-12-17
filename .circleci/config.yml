@@ -5,7 +5,7 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  ruby: circleci/ruby@1.4.0
+  node: circleci/node@5.0.0 # Needed for javascript runtime
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -18,12 +18,12 @@ jobs:
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: postgres
+          PGUSER: alankrumholz
           RAILS_ENV: test
       - image: circleci/postgres:11 # database image
         environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
-          POSTGRES_USER: postgres
-          POSTGRES_DB: BE-FieldTripper_test
+          POSTGRES_USER: alankrumholz
+          POSTGRES_DB: seekr_test
           POSTGRES_HOST_AUTH_METHOD: trust
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
