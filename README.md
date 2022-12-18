@@ -4,7 +4,7 @@
 
 ## Welcome to Seekr
 
-This is a lightweight Rails API that exposes a list of companies known to be currently hiring despite the slowdown in job creation in the tech industry. We wanted to present the data in a way that would serve the needs of those looking for work, so we chose to use GraphQL to simplify and standardize queries. See below for the five endpoints available
+This is a lightweight Rails API that exposes a list of companies known to be currently hiring despite the slowdown in job creation in the tech industry. We wanted to present the data in a way that would serve the needs of those looking for work, so we chose to use GraphQL to simplify and standardize queries. See below for the endpoints available
 
 ### Setting Up Seekr API On Your Machine
 
