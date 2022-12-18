@@ -7,10 +7,8 @@ RSpec.describe 'keyword search query' do
         <<~GQL
           {
             keywordSearch(keyword: "#{keyword}") {
-              company {
-                companyName
-                description
-              }
+              companyName
+              description
             }
           }
         GQL
@@ -23,7 +21,8 @@ RSpec.describe 'keyword search query' do
 
       post "/graphql", params: { query: query("travel") }
       result = JSON.parse(response.body, symbolize_names: true)
-      require 'pry'; binding.pry
+
+      expect(result[:data][:keywordSearch].size).to eq 3
     end
   end
 end
