@@ -42,5 +42,17 @@ RSpec.describe Company, type: :model do
         expect(result).not_to include(company_4)
       end
     end
+
+    describe '::search(args)' do
+      it 'returns companies that match args' do
+        company_1 = create(:company, company_name: "travel", roles_hiring_for: "backend")
+        company_2 = create(:company, company_name: "travel boss", roles_hiring_for: "backend")
+        company_3 = create(:company, company_name: "travel", roles_hiring_for: "frontend")
+
+        result = Company.search(company_name: "travel", roles_hiring_for: "backend")
+        expect(result).to include(company_1, company_2)
+        expect(result).not_to include(company_3)
+      end
+    end
   end
 end
