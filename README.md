@@ -1,5 +1,7 @@
 # Seekr Documentation
 
+![ruby](https://img.shields.io/static/v1?message=2.7.4&logo=ruby&style=for-the-badge&label=Ruby&color=darkred&labelColor=crimson) ![ror](https://img.shields.io/static/v1?message=5.2.8.1&logo=rubyonrails&style=for-the-badge&label=Rails&color=crimson&labelColor=darkred) ![Postgres](https://img.shields.io/static/v1?message=14.6&=postgresql&style=for-the-badge&label=Postgresql&color=dodgerblue&labelColor=royalblue&logoColor=white) ![graphql](https://img.shields.io/static/v1?style=for-the-badge&label=&logoColor=white&message=GraphQL&logo=graphql&color=teal&labelColor=green) ![postman](https://img.shields.io/static/v1?message=POSTMAN&logo=postman&style=for-the-badge&label=&color=orangered&labelColor=darkorange&logoColor=white) ![circleci](https://img.shields.io/static/v1?message=CircleCI&logo=circleci&style=for-the-badge&label=&color=mediumaquamarine&labelColor=lightseagreen&logoColor=white)
+
 ## Welcome to Seekr
 
 This is a lightweight Rails API that exposes a list of companies known to be currently hiring despite the slowdown in job creation in the tech industry. We wanted to present the data in a way that would serve the needs of those looking for work, so we chose to use GraphQL to simplify and standardize queries. See below for the five endpoints available
