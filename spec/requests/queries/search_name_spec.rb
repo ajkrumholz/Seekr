@@ -6,7 +6,7 @@ RSpec.describe "search name query" do
       def query(name)
         <<~GQL
           {
-            searchName(name: "#{name}") {
+            searchName(companyName: "#{name}") {
               companyName
               description
             }
@@ -22,7 +22,7 @@ RSpec.describe "search name query" do
       post "/graphql", params: { query: query("travel") }
       result = JSON.parse(response.body, symbolize_names: true)
 
-      require 'pry'; binding.pry
+      expect(result[:data][:searchName].size).to eq 3
     end
   end
 
