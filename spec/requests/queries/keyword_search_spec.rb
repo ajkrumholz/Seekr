@@ -23,6 +23,7 @@ RSpec.describe 'keyword search query' do
 
       post "/graphql", params: { query: query("travel") }
       result = JSON.parse(response.body, symbolize_names: true)
+      require 'pry'; binding.pry
     end
   end
 end

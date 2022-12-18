@@ -3,12 +3,7 @@ class Queries::KeywordSearch < Queries::BaseQuery
 
   type [Types::CompanyType], null: true
 
-  def resolve(id:)
-    Company.find(id)
-    rescue ActiveRecord::RecordNotFound => _e
-      GraphQL::ExecutionError.new("Company doesn't exist.")
-    rescue ActiveRecord::RecordInvalid => e
-      GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
-        " #{e.record.errors.full_messages.join(', ')}")
+  def resolve(keyword:)
+    Company.keyword_search(keyword)
   end
 end
