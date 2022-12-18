@@ -27,6 +27,26 @@ RSpec.describe "search name query" do
   end
 
   describe 'sad path' do
+    describe 'when nothing matches' do
+      it 'returns an empty response' do
+        def query(name)
+          <<~GQL
+            {
+              searchName(companyName: "#{name}") {
+                companyName
+                description
+              }
+            }
+          GQL
+        end
+  
+        create_list(:company, 4, company_name: "travel")
+  
+        post "/graphql", params: { query: query("nomatch") }
+        result = JSON.parse(response.body, symbolize_names: true)
 
+        expect(result[:data][:searchName]).to be_empty
+      end
+    end
   end
 end
