@@ -5,6 +5,10 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     field :companies, resolver: Queries::Companies
+    field :company, resolver: Queries::Company
+    field :keyword_search, resolver: Queries::KeywordSearch
+    field :search_name, resolver: Queries::SearchName
+    field :search, resolver: Queries::Search
 
   end
 end
