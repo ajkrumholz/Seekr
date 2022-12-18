@@ -1,7 +1,7 @@
-class Queries::Company < Queries::BaseQuery
-  argument :id, ID, required: true
+class Queries::KeywordSearch < Queries::BaseQuery
+  argument :keyword, String, required: true
 
-  type Types::CompanyType, null: true
+  type [Types::CompanyType], null: true
 
   def resolve(id:)
     Company.find(id)

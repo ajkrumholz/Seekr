@@ -82,6 +82,29 @@ RSpec.describe 'company query' do
           expect(result[:errors].first[:message]).to eq("Field 'location' doesn't exist on type 'Company'")
         end
       end
+
+      describe 'when no id is provided' do
+        it 'returns an error' do
+          def query
+            <<~GQL
+              {
+                company {
+                  companyName
+                  description
+                  rolesHiringFor
+                }
+              }
+            GQL
+          end
+
+          company = create :company
+
+          post "/graphql", params: { query: query }
+          result = JSON.parse(response.body, symbolize_names: true)
+
+          expect(result[:errors].first[:message]).to eq("Field 'company' is missing required arguments: id")
+        end
+      end
     end
   end
 end

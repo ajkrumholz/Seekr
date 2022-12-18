@@ -6,5 +6,6 @@ module Types
 
     field :companies, resolver: Queries::Companies
     field :company, resolver: Queries::Company
+    field :keyword_search, resolver: Queries::KeywordSearch
   end
 end
