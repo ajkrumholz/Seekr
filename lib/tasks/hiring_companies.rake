@@ -17,7 +17,7 @@ namespace :csv_load do
         comments: company[:any_other_comments]
       }
       if !company_hash[:company_name].blank?
-        if Company.find_by(company_name: company_hash[:company_name]).empty?
+        if Company.find_by(company_name: company_hash[:company_name]) == nil
           Company.create!(company_hash)
         end
       end
