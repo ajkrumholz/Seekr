@@ -4,6 +4,6 @@ class Queries::KeywordSearch < Queries::BaseQuery
   type [Types::CompanyType], null: true
 
   def resolve(keyword:)
-    Company.keyword_search(keyword)
+    ::Company.keyword_search(keyword)
   end
 end

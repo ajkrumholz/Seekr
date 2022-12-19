@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
   def self.keyword_search(keyword)
-    where("company_name ILIKE ? OR description ILIKE ?", "%#{keyword}%", "%#{keyword}%")
+    # require 'pry'; binding.pry
+    where("concat_ws(' ', company_name, description, roles_hiring_for, locations_hiring_in, one_nice_thing, comments) ILIKE ?", "%#{keyword}%")
   end
 
   def self.name_search(name)
