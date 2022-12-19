@@ -17,7 +17,9 @@ namespace :csv_load do
         comments: company[:any_other_comments]
       }
       if !company_hash[:company_name].blank?
-        Company.create!(company_hash)
+        if Company.find_by(company_name: company_hash[:company_name]).empty?
+          Company.create!(company_hash)
+        end
       end
     end
     # ActiveRecord::Base.connection.reset_pk_sequence!('companies')
