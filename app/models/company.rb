@@ -4,7 +4,7 @@ class Company < ApplicationRecord
     keyword.split(' ').each do |word| 
       result << Company.where("concat_ws(' ', company_name, description, roles_hiring_for, locations_hiring_in, one_nice_thing, comments) ILIKE ?", "%#{word}%")
     end
-    result.flatten
+    result.flatten.uniq
   end
 
   def self.name_search(name)

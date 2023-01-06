@@ -23,7 +23,7 @@ RSpec.describe Company, type: :model do
         company_4 = create(:company, company_name: "nomatch", description: "nomatch")
 
         result = Company.keyword_search("travel")
-        
+
         expect(result).to include(company_1, company_2, company_3)
         expect(result).not_to include(company_4)
       end
